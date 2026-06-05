@@ -1,0 +1,134 @@
+{
+  "type": "panel",
+  "i18n": true,
+  "items": {
+    "interval": {
+      "type": "number",
+      "label": "Neuberechnung-Intervall (Minuten)",
+      "min": 1,
+      "max": 1440,
+      "default": 30,
+      "sm": 4,
+      "help": "Zusätzlich wird bei jeder Sensoränderung neu berechnet."
+    },
+    "heightNN": {
+      "type": "number",
+      "label": "Höhe über NN (m)",
+      "default": 15,
+      "sm": 4,
+      "help": "Basis für den mittleren Luftdruck, wenn kein Drucksensor angegeben ist."
+    },
+    "pressureSensor": {
+      "type": "text",
+      "label": "Luftdrucksensor (Datenpunkt, optional)",
+      "default": "",
+      "sm": 4,
+      "help": "Datenpunkt-ID eines Luftdrucksensors in hPa. Leer = aus Höhe berechnen."
+    },
+    "_spacer1": {
+      "type": "divider",
+      "sm": 12
+    },
+    "pushoverEnabled": {
+      "type": "checkbox",
+      "label": "Pushover-Benachrichtigung bei Änderung der Lüftungsempfehlung",
+      "default": false,
+      "sm": 12
+    },
+    "pushoverInstance": {
+      "type": "instance",
+      "adapter": "pushover",
+      "label": "Pushover-Instanz",
+      "sm": 6,
+      "hidden": "!data.pushoverEnabled"
+    },
+    "pushoverTest": {
+      "type": "sendTo",
+      "command": "testPushover",
+      "jsonData": "{\"pushoverInstance\": \"${data.pushoverInstance}\"}",
+      "label": "Test senden",
+      "variant": "contained",
+      "hidden": "!data.pushoverEnabled",
+      "sm": 3
+    },
+    "_spacer2": {
+      "type": "divider",
+      "sm": 12
+    },
+    "rooms": {
+      "type": "table",
+      "label": "Räume",
+      "sm": 12,
+      "uniqueColumns": ["name"],
+      "items": [
+        {
+          "type": "text",
+          "attr": "name",
+          "title": "Name (ohne Leerzeichen empfohlen)",
+          "width": "16%",
+          "required": true
+        },
+        {
+          "type": "checkbox",
+          "attr": "isOutdoor",
+          "title": "Außen",
+          "width": "6%"
+        },
+        {
+          "type": "text",
+          "attr": "tempSensor",
+          "title": "Temperatur-Datenpunkt",
+          "width": "20%",
+          "required": true
+        },
+        {
+          "type": "text",
+          "attr": "humSensor",
+          "title": "Feuchte-Datenpunkt",
+          "width": "20%",
+          "required": true
+        },
+        {
+          "type": "text",
+          "attr": "outdoorRef",
+          "title": "Außensensor (Raumname)",
+          "width": "12%"
+        },
+        {
+          "type": "number",
+          "attr": "tempOffset",
+          "title": "Temp-Offset (°C)",
+          "width": "7%",
+          "default": 0
+        },
+        {
+          "type": "number",
+          "attr": "humOffset",
+          "title": "Feuchte-Offset (%)",
+          "width": "7%",
+          "default": 0
+        },
+        {
+          "type": "text",
+          "attr": "minTemp",
+          "title": "Min-Temp (Zahl oder DP)",
+          "width": "6%"
+        },
+        {
+          "type": "number",
+          "attr": "humMin",
+          "title": "Feuchte min (%)",
+          "width": "5%",
+          "default": 40
+        },
+        {
+          "type": "number",
+          "attr": "humMax",
+          "title": "Feuchte max (%)",
+          "width": "5%",
+          "default": 60
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "common": {
+    "name": "raumklima",
+    "version": "0.0.1",
+    "news": {
+      "0.0.1": {
+        "en": "Initial release",
+        "de": "Erstveröffentlichung"
+      }
+    },
+    "title": "Raumklima",
+    "titleLang": {
+      "en": "Room Climate Ventilation Advisor",
+      "de": "Raumklima Lüftungsempfehlung"
+    },
+    "desc": {
+      "en": "Calculates per-room ventilation recommendations from temperature and humidity (dew point, absolute humidity, hysteresis).",
+      "de": "Berechnet pro Raum eine Lüftungsempfehlung aus Temperatur und Luftfeuchte (Taupunkt, absolute Feuchte, Hysterese)."
+    },
+    "authors": ["lars"],
+    "keywords": ["raumklima", "lüften", "ventilation", "humidity", "dewpoint", "taupunkt"],
+    "license": "MIT",
+    "platform": "Javascript/Node.js",
+    "main": "main.js",
+    "icon": "admin/raumklima.svg",
+    "enabled": true,
+    "extIcon": "",
+    "readme": "",
+    "loglevel": "info",
+    "mode": "daemon",
+    "type": "climate-control",
+    "adminUI": {
+      "config": "json"
+    },
+    "connectionType": "local",
+    "dataSource": "poll",
+    "supportCustoms": false,
+    "messagebox": true
+  },
+  "native": {
+    "interval": 30,
+    "heightNN": 15,
+    "pressureSensor": "",
+    "pushoverEnabled": false,
+    "pushoverInstance": "",
+    "rooms": []
+  },
+  "objects": [],
+  "instanceObjects": []
+}
