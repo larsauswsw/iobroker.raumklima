@@ -92,10 +92,13 @@
           "required": true
         },
         {
-          "type": "text",
+          "type": "selectSendTo",
           "attr": "outdoorRef",
-          "title": "Außensensor (Raumname)",
-          "width": "12%"
+          "title": "Außensensor",
+          "width": "14%",
+          "command": "getOutdoorRooms",
+          "alsoDependsOn": ["rooms"],
+          "disabled": "data.isOutdoor"
         },
         {
           "type": "number",

@@ -281,7 +281,22 @@ class Raumklima extends utils.Adapter {
     }
 
     onMessage(obj) {
-        if (!obj || obj.command !== 'testPushover') return;
+        if (!obj || !obj.command) return;
+
+        if (obj.command === 'getOutdoorRooms') {
+            // Liefert die als "Außen" markierten Räume als Dropdown-Optionen.
+            // Bevorzugt die live übergebenen Tabellendaten, sonst die gespeicherte Config.
+            const rooms = (obj.message && Array.isArray(obj.message.rooms))
+                ? obj.message.rooms
+                : (Array.isArray(this.config.rooms) ? this.config.rooms : []);
+            const options = rooms
+                .filter(r => r && r.isOutdoor && r.name)
+                .map(r => ({ value: r.name, label: r.name }));
+            if (obj.callback) this.sendTo(obj.from, obj.command, options, obj.callback);
+            return;
+        }
+
+        if (obj.command !== 'testPushover') return;
         const instance = (obj.message && obj.message.pushoverInstance) || this.config.pushoverInstance;
         if (!instance) {
             this.log.warn('testPushover: keine Pushover-Instanz konfiguriert.');
