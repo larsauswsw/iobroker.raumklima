@@ -19,11 +19,12 @@
       "help": "Basis für den mittleren Luftdruck, wenn kein Drucksensor angegeben ist."
     },
     "pressureSensor": {
-      "type": "text",
+      "type": "objectId",
+      "types": ["state"],
       "label": "Luftdrucksensor (Datenpunkt, optional)",
       "default": "",
       "sm": 4,
-      "help": "Datenpunkt-ID eines Luftdrucksensors in hPa. Leer = aus Höhe berechnen."
+      "help": "Datenpunkt eines Luftdrucksensors in hPa. Leer = aus Höhe berechnen."
     },
     "_spacer1": {
       "type": "divider",
@@ -75,14 +76,16 @@
           "width": "6%"
         },
         {
-          "type": "text",
+          "type": "objectId",
+          "types": ["state"],
           "attr": "tempSensor",
           "title": "Temperatur-Datenpunkt",
           "width": "20%",
           "required": true
         },
         {
-          "type": "text",
+          "type": "objectId",
+          "types": ["state"],
           "attr": "humSensor",
           "title": "Feuchte-Datenpunkt",
           "width": "20%",
