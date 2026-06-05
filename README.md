@@ -25,13 +25,15 @@ Nur wenn alle vier erfüllt sind, lautet die Empfehlung „lüften". Ein einzige
 
 **Räume-Tabelle** (pro Raum)
 - Name, Häkchen **Außen** (markiert den Außensensor)
-- Temperatur-Datenpunkt, Feuchte-Datenpunkt
-- *Außensensor* – Name des Außenraums, auf den sich ein Innenraum bezieht
+- Temperatur-Datenpunkt, Feuchte-Datenpunkt (Auswahl aus dem Objektbaum)
+- *Außensensor* – Dropdown mit den als *Außen* markierten Räumen; bei einem Außenraum ist das Feld deaktiviert
 - Temp-/Feuchte-Offset (Kalibrierung)
 - Min-Temperatur (Zahl **oder** Datenpunkt, z. B. Heizungs-Soll) – Auskühlschutz
 - Feuchte min / max (%)
 
 Mindestens **ein** Raum muss als *Außen* markiert sein; Innenräume referenzieren ihn über *Außensensor*.
+
+> **Wichtig:** Bitte zuerst die **Außenräume** (Häkchen *Außen*) anlegen und **speichern**. Erst danach stehen sie bei den Innenräumen im Dropdown *Außensensor* zur Auswahl.
 
 ## Datenpunkte
 

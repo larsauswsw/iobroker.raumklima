@@ -56,6 +56,11 @@
       "type": "divider",
       "sm": 12
     },
+    "roomsHint": {
+      "type": "staticText",
+      "text": "Hinweis: Bitte zuerst die Außenräume (Häkchen „Außen“) anlegen und speichern. Erst danach stehen sie bei den Innenräumen im Dropdown „Außensensor“ zur Auswahl.",
+      "sm": 12
+    },
     "rooms": {
       "type": "table",
       "label": "Räume",
